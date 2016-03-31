@@ -116,9 +116,9 @@ def superellipsoid(n, rx, ry, rz, m1, m2):
     y.append([])
     z.append([])
     for phi in linspace(-.5*math.pi, .5*math.pi, n):
-      x[-1].append(rx*spe_cos(phi, 2./m1)*spe_cos(theta, 2./m2))
-      y[-1].append(ry*spe_cos(phi, 2./m1)*spe_sin(theta, 2./m2))
-      z[-1].append(rz*spe_sin(phi, 2./m1))
+      x[-1].append(rx*spe_cos(phi, 2./m2)*spe_cos(theta, 2./m1))
+      y[-1].append(ry*spe_cos(phi, 2./m2)*spe_sin(theta, 2./m1))
+      z[-1].append(rz*spe_sin(phi, 2./m2))
   return x, y, z
 
 

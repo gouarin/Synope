@@ -40,8 +40,10 @@ class Superellipse(object):
     Méthodes
     ========
 
-    surface: renvoie les points de la surface.
+    cloud: renvoie les points de la surface.
 
+    cloud_with_square: renvoie les points de la surface en projetant un carré.
+    
     area: renvoie l'aire.
 
     """
@@ -51,7 +53,7 @@ class Superellipse(object):
         self.ry = ry
         self.m = m
 
-    def surface(self, n=10):
+    def cloud(self, n=10):
         """
         retourne les points à la surface de la superellipse
 
@@ -64,7 +66,7 @@ class Superellipse(object):
         theta = np.linspace(0., 2.*np.pi, n)
         return self.rx*spe_cos(theta, 2./self.m), self.ry*spe_sin(theta, 2./self.m)
 
-    def surface_with_square(self, n=10):
+    def cloud_with_square(self, n=10):
         """
         retourne les points à la surface de la superellipse
         en projetant un carré sur celle-ci

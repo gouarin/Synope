@@ -28,7 +28,7 @@ def animate(i):
 rx, ry, rz = 1, 1, 1
 m1, m2 = 1, 1
 c = pySynope.Superellipsoid(rx, ry, rz, m1, m2)
-x, y, z = c.surface_with_square(15)
+x, y, z = c.cloud_with_square(15)
 
 q = pySynope.Quaternion()
 q.set_angle(np.pi/10)

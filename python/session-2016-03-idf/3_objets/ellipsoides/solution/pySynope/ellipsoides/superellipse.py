@@ -42,7 +42,7 @@ class Superellipse(object):
     Méthodes
     ========
 
-    surface: renvoie les points de la surface.
+    cloud: renvoie les points de la surface.
 
     area: renvoie l'aire.
 
@@ -53,7 +53,7 @@ class Superellipse(object):
         self.ry = ry
         self.m = m
 
-    def surface(self, n=10):
+    def cloud(self, n=10):
         """
         retourne les points à la surface de la superellipse
 
@@ -67,8 +67,8 @@ class Superellipse(object):
         x = []
         y = []
         for theta in theta_list:
-            x.append(self.rx*spe_cos(phi, 2./self.m))
-            y.append(self.ry*spe_sin(phi, 2./self.m))
+            x.append(self.rx*spe_cos(theta, 2./self.m))
+            y.append(self.ry*spe_sin(theta, 2./self.m))
         return x, y
 
     @property

@@ -53,7 +53,7 @@ class Superellipsoid(object):
     Méthodes
     ========
 
-    surface : renvoie le nuage de points de la surface.
+    cloud : renvoie le nuage de points de la surface.
 
     volume : renvoie le volume de la superellipsoide.
     """
@@ -64,7 +64,7 @@ class Superellipsoid(object):
         self.m1 = m1
         self.m2 = m2
 
-    def surface(self, n=10):
+    def cloud(self, n=10):
         """
         retourne les points à la surface de la superellipsoide.
 
@@ -85,11 +85,11 @@ class Superellipsoid(object):
             y.append([])
             z.append([])
             for phi in phi_list:
-                x[-1].append(self.rx*spe_cos(phi, 2./self.m1)
-                             *spe_cos(theta, 2./self.m2))
-                y[-1].append(self.ry*spe_cos(phi, 2./self.m1)
-                             *spe_sin(theta, 2./self.m2))
-                z[-1].append(self.rz*spe_sin(phi, 2./self.m1))
+                x[-1].append(self.rx*spe_cos(phi, 2./self.m2)
+                             *spe_cos(theta, 2./self.m1))
+                y[-1].append(self.ry*spe_cos(phi, 2./self.m2)
+                             *spe_sin(theta, 2./self.m1))
+                z[-1].append(self.rz*spe_sin(phi, 2./self.m2))
         return x, y, z
 
     @property
