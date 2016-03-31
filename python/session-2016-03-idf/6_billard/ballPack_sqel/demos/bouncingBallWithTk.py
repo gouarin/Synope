@@ -9,9 +9,6 @@ width, height = 500, 400
 # délai de raffraichissement
 delay = .05
 
-# palette de couleur
-color = bp.Color()
-
 # création de la balle
 balls = []
 

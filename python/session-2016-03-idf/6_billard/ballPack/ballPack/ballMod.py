@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import textwrap
 
 class Ball:
     def __init__(self, x, y, vx=1, vy=1, radius=20, xdomain=[0, 800], ydomain=[0, 600], color='green'):
@@ -63,13 +64,16 @@ class Ball:
         
 
     def __str__(self):
-        s = 'Ball:\n'
-        s += '\t coord    : {0}\n'.format(self.coords)
-        s += '\t velocity : {0}\n'.format(self.v)
-        s += '\t radius   : {0}\n'.format(self.radius)
-        s += '\t color    : {0}\n'.format(self.color)
-        s += '\t domain   : {0}\n'.format(self.domain)
-        return s
+        return textwrap.dedent("""
+        {}:
+            coord    : {}
+            velocity : {}
+            radius   : {}
+            color    : {}
+            domain   : {}
+        """.format(self.__class__.__name__, self.coords, self.v, 
+                   self.radius, self.color, self.domain))
+        
 
     def __repr__(self):
         return self.__str__()

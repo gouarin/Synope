@@ -20,7 +20,7 @@ def saveBalls(balls, filename, delimiter=','):
         ballwriter = csv.writer(csvfile, delimiter=delimiter,
                                 quotechar='\\', quoting=csv.QUOTE_MINIMAL)
         for b in balls:
-            class_name = str(b.__class__).split("'")[1]
+            class_name = b.__class__.__name__
             ballwriter.writerow([class_name, b.coords[0], b.coords[1], b.v[0], b.v[1], b.radius, b.domain[0], b.domain[1], '"' + b.color + '"'])
 
 def readBalls(file, delimiter=','):
@@ -45,7 +45,7 @@ def readBalls(file, delimiter=','):
         ballreader = csv.reader(csvfile, delimiter=delimiter,
                                 quotechar='\\', quoting=csv.QUOTE_MINIMAL)
         for row in ballreader:
-            b = eval(row[0] + '(' + ','.join(row[1:]) + ')')
+            b = eval('ballPack.' + row[0] + '(' + ','.join(row[1:]) + ')')
             balls.append(b)
     return balls
 
